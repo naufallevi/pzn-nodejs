@@ -1,0 +1,543 @@
+
+{
+  "header": {
+    "reportVersion": 5,
+    "event": "Exception",
+    "trigger": "Exception",
+    "filename": "report.json",
+    "dumpEventTime": "2026-07-23T13:05:26Z",
+    "dumpEventTimeStamp": "1784786726154",
+    "processId": 19049,
+    "threadId": 0,
+    "cwd": "/home/naufallevi/Projects/practice/pzn-nodejs/nodejs-dasar",
+    "commandLine": [
+      "node",
+      "/home/naufallevi/Projects/practice/pzn-nodejs/nodejs-dasar/report.mjs"
+    ],
+    "nodejsVersion": "v22.22.2",
+    "glibcVersionRuntime": "2.43",
+    "glibcVersionCompiler": "2.42",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "acorn": "8.15.0",
+      "ada": "2.9.2",
+      "amaro": "1.1.5",
+      "ares": "1.34.5",
+      "brotli": "1.2.0",
+      "cjs_module_lexer": "2.2.0",
+      "cldr": "48.0",
+      "icu": "78.2",
+      "llhttp": "9.3.0",
+      "modules": "127",
+      "napi": "10",
+      "nbytes": "0.1.1",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.68.1",
+      "node": "22.22.2",
+      "openssl": "3.5.7",
+      "simdjson": "4.2.4",
+      "simdutf": "6.4.2",
+      "sqlite": "3.50.2",
+      "tz": "2025c",
+      "undici": "6.24.1",
+      "unicode": "17.0",
+      "uv": "1.52.1",
+      "uvwasi": "0.0.23",
+      "v8": "12.4.254.21-node.39",
+      "zlib": "1.3.1.zlib-ng",
+      "zstd": "1.5.7"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Jod",
+      "headersUrl": "https://nodejs.org/download/release/v22.22.2/node-v22.22.2-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v22.22.2/node-v22.22.2.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "7.1.4-200.fc44.x86_64",
+    "osVersion": "#1 SMP PREEMPT_DYNAMIC Sat Jul 18 19:16:16 UTC 2026",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz",
+        "speed": 3100,
+        "user": 2300320,
+        "nice": 6320,
+        "sys": 495060,
+        "idle": 16444010,
+        "irq": 124010
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz",
+        "speed": 3100,
+        "user": 2178720,
+        "nice": 7140,
+        "sys": 493740,
+        "idle": 16501160,
+        "irq": 172450
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz",
+        "speed": 3099,
+        "user": 2275200,
+        "nice": 9260,
+        "sys": 490940,
+        "idle": 16483840,
+        "irq": 116500
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz",
+        "speed": 3108,
+        "user": 2362930,
+        "nice": 7190,
+        "sys": 495350,
+        "idle": 16405410,
+        "irq": 115250
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "wlp3s0",
+        "internal": false,
+        "mac": "c2:7c:75:dd:8b:61",
+        "address": "192.168.1.12",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "wlp3s0",
+        "internal": false,
+        "mac": "c2:7c:75:dd:8b:61",
+        "address": "fe80::9dca:124:f8da:faba",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 3
+      }
+    ],
+    "host": "fedora"
+  },
+  "javascriptStack": {
+    "message": "Error: Error",
+    "stack": [
+      "at main (file:///home/naufallevi/Projects/practice/pzn-nodejs/nodejs-dasar/report.mjs:9:9)",
+      "at file:///home/naufallevi/Projects/practice/pzn-nodejs/nodejs-dasar/report.mjs:12:1",
+      "at ModuleJob.run (node:internal/modules/esm/module_job:343:25)",
+      "at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)"
+    ],
+    "errorProperties": {
+    }
+  },
+  "javascriptHeap": {
+    "totalMemory": 8667136,
+    "executableMemory": 262144,
+    "totalCommittedMemory": 6881280,
+    "availableMemory": 2193140928,
+    "totalGlobalHandlesMemory": 8192,
+    "usedGlobalHandlesMemory": 2528,
+    "usedMemory": 4541152,
+    "memoryLimit": 2197815296,
+    "mallocedMemory": 262312,
+    "externalMemory": 1691341,
+    "peakMallocedMemory": 451912,
+    "nativeContextCount": 1,
+    "detachedContextCount": 0,
+    "doesZapGarbage": 0,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 4194304,
+        "committedMemory": 2162688,
+        "capacity": 2061824,
+        "used": 728744,
+        "available": 1333080
+      },
+      "old_space": {
+        "memorySize": 3207168,
+        "committedMemory": 3407872,
+        "capacity": 3148888,
+        "used": 2883744,
+        "available": 265144
+      },
+      "code_space": {
+        "memorySize": 262144,
+        "committedMemory": 253952,
+        "capacity": 245728,
+        "used": 72384,
+        "available": 173344
+      },
+      "shared_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      },
+      "trusted_space": {
+        "memorySize": 733184,
+        "committedMemory": 786432,
+        "capacity": 718168,
+        "used": 594120,
+        "available": 124048
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 2097152,
+        "used": 0,
+        "available": 2097152
+      },
+      "large_object_space": {
+        "memorySize": 270336,
+        "committedMemory": 270336,
+        "capacity": 262160,
+        "used": 262160,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      },
+      "shared_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      },
+      "trusted_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007f03934df344",
+      "symbol": "node::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, v8::Local<v8::Value>) [/lib64/libnode.so.127]"
+    },
+    {
+      "pc": "0x00007f03934df738",
+      "symbol": "node::TriggerNodeReport(node::Environment*, char const*, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, v8::Local<v8::Value>) [/lib64/libnode.so.127]"
+    },
+    {
+      "pc": "0x00007f039343b6b6",
+      "symbol": " [/lib64/libnode.so.127]"
+    },
+    {
+      "pc": "0x00007f039343cb66",
+      "symbol": "node::errors::TriggerUncaughtException(v8::Isolate*, v8::Local<v8::Value>, v8::Local<v8::Message>, bool) [/lib64/libnode.so.127]"
+    },
+    {
+      "pc": "0x00007f033528f5e2",
+      "symbol": ""
+    }
+  ],
+  "resourceUsage": {
+    "free_memory": 3216011264,
+    "total_memory": 8174436352,
+    "rss": 55873536,
+    "constrained_memory": 18446744073709551615,
+    "available_memory": 3216011264,
+    "userCpuSeconds": 0.16474,
+    "kernelCpuSeconds": 0.032254,
+    "cpuConsumptionPercent": 19.6994,
+    "userCpuConsumptionPercent": 16.474,
+    "kernelCpuConsumptionPercent": 3.2254,
+    "maxRss": 82788352,
+    "pageFaults": {
+      "IORequired": 0,
+      "IONotRequired": 4726
+    },
+    "fsActivity": {
+      "reads": 304,
+      "writes": 32
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 0.16404,
+    "kernelCpuSeconds": 0.029877,
+    "cpuConsumptionPercent": 19.3917,
+    "userCpuConsumptionPercent": 16.404,
+    "kernelCpuConsumptionPercent": 2.9877,
+    "fsActivity": {
+      "reads": 304,
+      "writes": 32
+    }
+  },
+  "libuv": [
+    {
+      "type": "async",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x000055f21dce6680"
+    },
+    {
+      "type": "async",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x00007f0397fa3e40"
+    },
+    {
+      "type": "timer",
+      "is_active": false,
+      "is_referenced": false,
+      "address": "0x000055f21dd45f20",
+      "repeat": 0,
+      "firesInMsFromNow": -19981871,
+      "expired": true
+    },
+    {
+      "type": "check",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x000055f21dd45fb8"
+    },
+    {
+      "type": "idle",
+      "is_active": false,
+      "is_referenced": true,
+      "address": "0x000055f21dd46030"
+    },
+    {
+      "type": "prepare",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x000055f21dd460a8"
+    },
+    {
+      "type": "check",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x000055f21dd46120"
+    },
+    {
+      "type": "async",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x000055f21dd46198"
+    },
+    {
+      "type": "pipe",
+      "is_active": false,
+      "is_referenced": true,
+      "address": "0x000055f21dd83208",
+      "localEndpoint": null,
+      "remoteEndpoint": null,
+      "sendBufferSize": 131072,
+      "recvBufferSize": 131072,
+      "fd": 1,
+      "stdio": "stdout",
+      "writeQueueSize": 0,
+      "readable": true,
+      "writable": true
+    },
+    {
+      "type": "pipe",
+      "is_active": false,
+      "is_referenced": true,
+      "address": "0x000055f21de3bed8",
+      "localEndpoint": null,
+      "remoteEndpoint": null,
+      "sendBufferSize": 131072,
+      "recvBufferSize": 131072,
+      "fd": 0,
+      "stdio": "stdin",
+      "writeQueueSize": 0,
+      "readable": true,
+      "writable": true
+    },
+    {
+      "type": "pipe",
+      "is_active": false,
+      "is_referenced": true,
+      "address": "0x000055f21de3a538",
+      "localEndpoint": null,
+      "remoteEndpoint": null,
+      "sendBufferSize": 131072,
+      "recvBufferSize": 131072,
+      "fd": 2,
+      "stdio": "stderr",
+      "writeQueueSize": 0,
+      "readable": true,
+      "writable": true
+    },
+    {
+      "type": "signal",
+      "is_active": true,
+      "is_referenced": false,
+      "address": "0x000055f21dd834d0",
+      "signum": 12,
+      "signal": "SIGUSR2"
+    },
+    {
+      "type": "loop",
+      "is_active": false,
+      "address": "0x00007f0398155200",
+      "loopIdleTimeSeconds": 0
+    }
+  ],
+  "workers": [
+  ],
+  "environmentVariables": {
+    "SHELL": "/bin/bash",
+    "HISTCONTROL": "ignoredups",
+    "XDG_MENU_PREFIX": "gnome-",
+    "QT_IM_MODULES": "wayland;ibus",
+    "HOSTNAME": "fedora",
+    "HISTSIZE": "1000",
+    "SSH_AUTH_SOCK": "/run/user/1000/gcr/ssh",
+    "COPILOT_CLI_ENABLED_FEATURE_FLAGS": "SHELL_SPAWN_BACKEND",
+    "MEMORY_PRESSURE_WRITE": "c29tZSAyMDAwMDAgMjAwMDAwMAA=",
+    "ELECTRON_RUN_AS_NODE": "1",
+    "XMODIFIERS": "@im=ibus",
+    "DESKTOP_SESSION": "gnome",
+    "NO_AT_BRIDGE": "1",
+    "GPG_TTY": "not a tty",
+    "EDITOR": "/usr/bin/nano",
+    "PWD": "/home/naufallevi/Projects/practice/pzn-nodejs/nodejs-dasar",
+    "XDG_SESSION_DESKTOP": "gnome",
+    "LOGNAME": "naufallevi",
+    "XDG_SESSION_TYPE": "wayland",
+    "COPILOT_OTEL_FILE_EXPORTER_PATH": "/dev/null",
+    "VSCODE_ESM_ENTRYPOINT": "vs/workbench/api/node/extensionHostProcess",
+    "SYSTEMD_EXEC_PID": "2213",
+    "VSCODE_CODE_CACHE_PATH": "/home/naufallevi/.config/Code/CachedData/8a7abeba6e03ea3af87bfbce9a1b7e48fed567b8",
+    "_": "/usr/bin/node",
+    "XAUTHORITY": "/run/user/1000/.mutter-Xwaylandauth.HOJBT3",
+    "GJS_DEBUG_TOPICS": "JS ERROR;JS LOG",
+    "GDM_LANG": "en_US.UTF-8",
+    "HOME": "/home/naufallevi",
+    "USERNAME": "naufallevi",
+    "LANG": "en_US.UTF-8",
+    "XDG_CURRENT_DESKTOP": "GNOME",
+    "VSCODE_DOTNET_INSTALL_TOOL_ORIGINAL_HOME": "/home/naufallevi",
+    "VSCODE_IPC_HOOK": "/run/user/1000/vscode-5e1e1c75-1.12-main.sock",
+    "MEMORY_PRESSURE_WATCH": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@user.service/memory.pressure",
+    "WAYLAND_DISPLAY": "wayland-0",
+    "INVOCATION_ID": "e392ebffb69548058f3dbac87be9016e",
+    "MANAGERPID": "2008",
+    "CHROME_DESKTOP": "code.desktop",
+    "GJS_DEBUG_OUTPUT": "stderr",
+    "MOZ_GMP_PATH": "/usr/lib64/mozilla/plugins/gmp-gmpopenh264/system-installed",
+    "GNOME_SETUP_DISPLAY": "unix:/tmp/.X11-unix/X1",
+    "XDG_SESSION_CLASS": "user",
+    "LESSOPEN": "||/usr/bin/lesspipe.sh %s",
+    "USER": "naufallevi",
+    "DISPLAY": ":0",
+    "VSCODE_PID": "11198",
+    "SHLVL": "0",
+    "QT_IM_MODULE": "ibus",
+    "VSCODE_CWD": "/home/naufallevi",
+    "MANAGERPIDFDID": "398",
+    "FC_FONTATIONS": "1",
+    "VSCODE_CRASH_REPORTER_PROCESS_TYPE": "extensionHost",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "DEBUGINFOD_URLS": "ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore ",
+    "DEBUGINFOD_IMA_CERT_PATH": "/etc/keys/ima:",
+    "JOURNAL_STREAM": "10:26333",
+    "XDG_DATA_DIRS": "/home/naufallevi/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/",
+    "GDK_BACKEND": "wayland",
+    "PATH": "/home/naufallevi/.local/bin:/home/naufallevi/bin:/usr/local/bin:/usr/bin",
+    "GDMSESSION": "gnome",
+    "XDG_SESSION_EXTRA_DEVICE_ACCESS": "render:accel",
+    "APPLICATION_INSIGHTS_NO_STATSBEAT": "true",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "VSCODE_NLS_CONFIG": "{\"userLocale\":\"en-us\",\"osLocale\":\"en-us\",\"resolvedLanguage\":\"en\",\"defaultMessagesFile\":\"/usr/share/code/resources/app/out/nls.messages.json\",\"locale\":\"en-us\",\"availableLanguages\":{}}",
+    "MAIL": "/var/spool/mail/naufallevi",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "11198",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/usr/share/applications/code.desktop",
+    "MXC_BIN_DIR": "/usr/share/code/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin",
+    "VSCODE_HANDLES_UNCAUGHT_ERRORS": "true"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "data_seg_size_bytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 8388608,
+      "hard": 8388608
+    },
+    "max_memory_size_bytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 524288,
+      "hard": 524288
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 30539,
+      "hard": 30539
+    },
+    "virtual_memory_bytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib64/libnode.so.127",
+    "/lib64/libc.so.6",
+    "/lib64/libz.so.1",
+    "/lib64/libuv.so.1",
+    "/lib64/libbrotlidec.so.1",
+    "/lib64/libbrotlienc.so.1",
+    "/lib64/libcares.so.2",
+    "/lib64/libsqlite3.so.0",
+    "/lib64/libcrypto.so.3",
+    "/lib64/libssl.so.3",
+    "/lib64/libstdc++.so.6",
+    "/lib64/libm.so.6",
+    "/lib64/libgcc_s.so.1",
+    "/lib64/ld-linux-x86-64.so.2",
+    "/lib64/libbrotlicommon.so.1"
+  ]
+}
