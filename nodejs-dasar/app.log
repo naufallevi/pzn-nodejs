@@ -1,0 +1,28 @@
+Assalamualaikum
+Waalaikumsalam
+Empty item
+{
+  brand: 'Suzuki',
+  type: 'Fronx',
+  variants: [
+    {
+      code: 'SGX',
+      transmission: 'Automatic',
+      engine: '1.5L K15C',
+      fuel: 'Gasoline',
+      drivetrain: 'FWD'
+    }
+  ]
+}
+┌──────────┬──────────┬──────────┐
+│ (index)  │ 0        │ Values   │
+├──────────┼──────────┼──────────┤
+│ brand    │          │ 'Suzuki' │
+│ type     │          │ 'Fronx'  │
+│ variants │ [Object] │          │
+└──────────┴──────────┴──────────┘
+┌─────────┬───────┬──────────────┬─────────────┬────────────┬────────────┐
+│ (index) │ code  │ transmission │ engine      │ fuel       │ drivetrain │
+├─────────┼───────┼──────────────┼─────────────┼────────────┼────────────┤
+│ 0       │ 'SGX' │ 'Automatic'  │ '1.5L K15C' │ 'Gasoline' │ 'FWD'      │
+└─────────┴───────┴──────────────┴─────────────┴────────────┴────────────┘
