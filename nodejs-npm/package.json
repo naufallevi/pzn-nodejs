@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-npm",
+  "version": "1.0.0",
+  "description": "Belajar NodeJS NPM",
+  "exports": {
+    ".": "./index.js",
+    "./write": "./write.js"
+  },
+  "homepage": "https://naufallevi-portfolio.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naufallevi/pzn-nodejs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node index.js",
+    "prestart": "echo 'Before APP start'",
+    "start": "node index.js",
+    "poststart": "echo 'After APP start'"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "npm"
+  ],
+  "author": "Naufallevi",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "lodash": "4.18.1"
+  }
+}
