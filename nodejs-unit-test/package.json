@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-unit-test",
+  "version": "1.0.0",
+  "description": "NodeJS Unit Test",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Naufallevi",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.7",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  }
+}
