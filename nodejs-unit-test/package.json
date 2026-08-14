@@ -14,9 +14,23 @@
     "jest": "^30.4.2"
   },
   "jest": {
+    "maxConcurrency": 3,
     "verbose": true,
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    },
+    "collectCoverage": false,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!vendor/**/*.{js,jsx}"
+    ]
   }
 }
