@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-database",
+  "version": "1.0.0",
+  "description": "NodeJS Database",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "postinstall": "prisma skills sync || exit 0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "author": "Naufallevi",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.5.1",
+    "prisma": "^5.22.0"
+  }
+}
