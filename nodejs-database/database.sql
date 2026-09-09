@@ -139,3 +139,13 @@ CREATE TABLE _loves (
     CONSTRAINT loves_customer_id_fk FOREIGN KEY (A) REFERENCES customers (id),
     CONSTRAINT loves_product_id_fk FOREIGN KEY (B) REFERENCES products (id)
 ) ENGINE = InnoDB;
+
+CREATE DATABASE nodejs_prisma;
+
+USE nodejs_prisma;
+
+SELECT * FROM _prisma_migrations;
+
+ALTER TABLE sample
+ADD created_at DATE,
+ADD updated_at DATE;
