@@ -51,13 +51,13 @@ describe("Prisma Client", () => {
     console.info(customer);
   });
 
-    it("should find one to one with relation filter", async () => {
+  it("should find one to one with relation filter", async () => {
     const customers = await prismaClient.customer.findMany({
       where: {
         wallet: {
-          isNot: null
+          isNot: null,
           // is: null
-        }
+        },
       },
       include: {
         wallet: true,
@@ -65,5 +65,24 @@ describe("Prisma Client", () => {
     });
 
     console.info(customers);
+  });
+
+  it("should find many with filter relation", async () => {
+    const customers = await prismaClient.customer.findMany({
+      where: {
+        comments: {
+          some: {
+            title: {
+              contains: "Comment 1",
+            },
+          },
+        },
+      },
+      include: {
+        comments: true,
+      },
+    });
+
+    console.info(JSON.stringify(customers));
   });
 });

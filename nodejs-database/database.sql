@@ -29,12 +29,49 @@ CREATE TABLE products (
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
-INSERT INTO products ( id, name, price, stock, category ) VALUES 
-("P-0001", "A", "1000", "100", "C1"),
-("P-0002", "B", "2000", "200", "C1"),
-("P-0003", "C", "3000", "300", "C1"),
-("P-0004", "D", "4000", "400", "C2"),
-("P-0005", "E", "5000", "500", "C2")
+INSERT INTO
+    products (
+        id,
+        name,
+        price,
+        stock,
+        category
+    )
+VALUES (
+        "P-0001",
+        "A",
+        "1000",
+        "100",
+        "C1"
+    ),
+    (
+        "P-0002",
+        "B",
+        "2000",
+        "200",
+        "C1"
+    ),
+    (
+        "P-0003",
+        "C",
+        "3000",
+        "300",
+        "C1"
+    ),
+    (
+        "P-0004",
+        "D",
+        "4000",
+        "400",
+        "C2"
+    ),
+    (
+        "P-0005",
+        "E",
+        "5000",
+        "500",
+        "C2"
+    )
 
 CREATE TABLE categories (
     id INT NOT NULL AUTO_INCREMENT,
@@ -47,6 +84,42 @@ CREATE TABLE wallet (
     balance INT NOT NULL,
     customer_id VARCHAR(100) NOT NULL,
     PRIMARY KEY (id),
-    CONSTRAINT wallet_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers(id),
+    CONSTRAINT wallet_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers (id),
     CONSTRAINT wallet_customer_id_unique UNIQUE (customer_id)
-)
+) ENGINE = InnoDB;
+
+CREATE TABLE comments (
+    id INT NOT NULL AUTO_INCREMENT,
+    customer_id VARCHAR(100) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    PRIMARY KEY (id),
+    CONSTRAINT comments_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers (id)
+) ENGINE = InnoDB;
+
+INSERT INTO
+    comments (
+        customer_id,
+        title,
+        description
+    )
+VALUES (
+        "1",
+        "Comment 1",
+        "Description for comment 1"
+    ),
+    (
+        "1",
+        "Comment 2",
+        "Description for comment 2"
+    ),
+    (
+        "8",
+        "Comment 1",
+        "Description for comment 1"
+    ),
+    (
+        "8",
+        "Comment 2",
+        "Description for comment 2"
+    )
