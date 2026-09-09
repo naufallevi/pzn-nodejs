@@ -123,3 +123,19 @@ VALUES (
         "Comment 2",
         "Description for comment 2"
     )
+
+CREATE TABLE likes (
+    customer_id VARCHAR(100) NOT NULL,
+    product_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY (customer_id, product_id),
+    CONSTRAINT likes_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers (id),
+    CONSTRAINT likes_product_id_fk FOREIGN KEY (product_id) REFERENCES products (id)
+) ENGINE = InnoDB;
+
+CREATE TABLE _loves (
+    A VARCHAR(100) NOT NULL,
+    B VARCHAR(100) NOT NULL,
+    PRIMARY KEY (A, B),
+    CONSTRAINT loves_customer_id_fk FOREIGN KEY (A) REFERENCES customers (id),
+    CONSTRAINT loves_product_id_fk FOREIGN KEY (B) REFERENCES products (id)
+) ENGINE = InnoDB;
