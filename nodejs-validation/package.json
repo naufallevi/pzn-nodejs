@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-validation",
+  "version": "1.0.0",
+  "description": "Belajar NodeJS Validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "author": "Naufallevi",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@types/jest": "^30.0.0",
+    "babel-jest": "^30.5.1",
+    "jest": "^30.5.1"
+  },
+  "dependencies": {
+    "joi": "^18.2.9"
+  }
+}
