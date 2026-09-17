@@ -20,10 +20,14 @@ describe("Joi", () => {
     const resultUsername = usernameSchema.validate("sylvie@tva.com");
     console.info(resultUsername);
 
-    const resultIsTrue = booleanSchema.validate(true);
+    const resultIsTrue = booleanSchema.validate("true");
     console.info(resultIsTrue);
+    console.info(typeof resultIsTrue.value);
+    console.info(typeof resultIsTrue.error);
 
-    const resultPrice = priceSchema.validate(100000);
+    const resultPrice = priceSchema.validate("1000)00");
     console.info(resultPrice);
+    console.info(typeof resultPrice.value);
+    console.info(typeof resultPrice.error);
   });
 });
