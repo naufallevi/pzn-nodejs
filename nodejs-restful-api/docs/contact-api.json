@@ -1,0 +1,479 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Contact API Spec",
+    "description": "API specification for Contact management (Create, Update, Get, Search, Remove)",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Local server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Contact",
+      "description": "Contact management endpoints"
+    }
+  ],
+  "paths": {
+    "/api/contacts": {
+      "post": {
+        "tags": ["Contact"],
+        "summary": "Create Contact",
+        "description": "Membuat kontak baru untuk user yang sedang login.",
+        "operationId": "createContact",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Kontak berhasil dibuat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request tidak valid (contoh: format email salah)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Contact"],
+        "summary": "Search Contact",
+        "description": "Mencari kontak berdasarkan nama, email, atau phone dengan pagination.",
+        "operationId": "searchContact",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Search by first_name or last_name, using like.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Grace"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "description": "Search by email using like.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "grace"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "description": "Search by phone using like.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1122"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Number of page, default 1.",
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "description": "Size per page, default 10.",
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1
+            },
+            "example": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Berhasil mengambil daftar kontak",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contacts/{id}": {
+      "put": {
+        "tags": ["Contact"],
+        "summary": "Update Contact",
+        "description": "Memperbarui data kontak berdasarkan ID.",
+        "operationId": "updateContact",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak yang akan diperbarui.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Kontak berhasil diperbarui",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request tidak valid (contoh: format email salah)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Contact"],
+        "summary": "Get Contact",
+        "description": "Mengambil data kontak berdasarkan ID.",
+        "operationId": "getContact",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak yang akan diambil.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Berhasil mengambil data kontak",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contact"],
+        "summary": "Remove Contact",
+        "description": "Menghapus kontak berdasarkan ID.",
+        "operationId": "removeContact",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak yang akan dihapus.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kontak berhasil dihapus",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveContactResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Masukkan token autentikasi (contoh: `unique-token`)"
+      }
+    },
+    "schemas": {
+      "ContactRequest": {
+        "type": "object",
+        "required": ["first_name", "last_name", "email", "phone"],
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "maxLength": 100,
+            "example": "Grace"
+          },
+          "last_name": {
+            "type": "string",
+            "maxLength": 100,
+            "example": "Ashcroft"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "maxLength": 200,
+            "example": "gracea@re.com"
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 20,
+            "example": "11223344"
+          }
+        }
+      },
+      "ContactData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "first_name": {
+            "type": "string",
+            "example": "Grace"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "Ashcroft"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "gracea@re.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "11223344"
+          }
+        }
+      },
+      "ContactResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ContactData"
+          }
+        }
+      },
+      "ContactListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactData"
+            }
+          },
+          "paging": {
+            "$ref": "#/components/schemas/PagingData"
+          }
+        }
+      },
+      "PagingData": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "example": 1
+          },
+          "total_page": {
+            "type": "integer",
+            "example": 3
+          },
+          "total_item": {
+            "type": "integer",
+            "example": 30
+          }
+        }
+      },
+      "RemoveContactResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "example": "OK"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "string",
+            "example": "Email is not valid format"
+          }
+        }
+      }
+    }
+  }
+}

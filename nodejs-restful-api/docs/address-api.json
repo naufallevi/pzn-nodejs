@@ -1,0 +1,497 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Address API Spec",
+    "description": "API specification for Address management (Create, Update, Get, List, Remove)",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Local server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Address",
+      "description": "Address management endpoints"
+    }
+  ],
+  "paths": {
+    "/api/contacts/{contactId}/addresses": {
+      "post": {
+        "tags": ["Address"],
+        "summary": "Create Address",
+        "description": "Membuat alamat baru untuk kontak tertentu.",
+        "operationId": "createAddress",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak pemilik alamat.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Alamat berhasil dibuat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request tidak valid (contoh: country wajib diisi)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Address"],
+        "summary": "List Addresses",
+        "description": "Mengambil daftar alamat milik kontak tertentu.",
+        "operationId": "listAddresses",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak pemilik alamat.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Berhasil mengambil daftar alamat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contacts/{contactId}/addresses/{addressId}": {
+      "put": {
+        "tags": ["Address"],
+        "summary": "Update Address",
+        "description": "Memperbarui data alamat berdasarkan ID.",
+        "operationId": "updateAddress",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak pemilik alamat.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          },
+          {
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "description": "ID alamat yang akan diperbarui.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Alamat berhasil diperbarui",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request tidak valid (contoh: country wajib diisi)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found atau Address is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Address"],
+        "summary": "Get Address",
+        "description": "Mengambil data alamat berdasarkan ID.",
+        "operationId": "getAddress",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak pemilik alamat.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          },
+          {
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "description": "ID alamat yang akan diambil.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Berhasil mengambil data alamat",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found atau Address is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Address"],
+        "summary": "Remove Address",
+        "description": "Menghapus alamat berdasarkan ID.",
+        "operationId": "removeAddress",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "description": "ID kontak pemilik alamat.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          },
+          {
+            "name": "addressId",
+            "in": "path",
+            "required": true,
+            "description": "ID alamat yang akan dihapus.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Alamat berhasil dihapus",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveAddressResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact is not found atau Address is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Masukkan token autentikasi (contoh: `unique-token`)"
+      }
+    },
+    "schemas": {
+      "AddressRequest": {
+        "type": "object",
+        "required": ["country"],
+        "properties": {
+          "street": {
+            "type": "string",
+            "maxLength": 255,
+            "nullable": true,
+            "example": "Jl. Abcde"
+          },
+          "city": {
+            "type": "string",
+            "maxLength": 100,
+            "nullable": true,
+            "example": "Abcde"
+          },
+          "province": {
+            "type": "string",
+            "maxLength": 100,
+            "nullable": true,
+            "example": "Abcde"
+          },
+          "country": {
+            "type": "string",
+            "maxLength": 100,
+            "example": "Abcde"
+          },
+          "postal_code": {
+            "type": "string",
+            "maxLength": 10,
+            "nullable": true,
+            "example": "12345"
+          }
+        }
+      },
+      "AddressData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "street": {
+            "type": "string",
+            "nullable": true,
+            "example": "Jl. Abcde"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true,
+            "example": "Abcde"
+          },
+          "province": {
+            "type": "string",
+            "nullable": true,
+            "example": "Abcde"
+          },
+          "country": {
+            "type": "string",
+            "example": "Abcde"
+          },
+          "postal_code": {
+            "type": "string",
+            "nullable": true,
+            "example": "12345"
+          }
+        }
+      },
+      "AddressResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AddressData"
+          }
+        }
+      },
+      "AddressListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddressData"
+            }
+          }
+        }
+      },
+      "RemoveAddressResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "example": "OK"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "string",
+            "example": "Country is required"
+          }
+        }
+      }
+    }
+  }
+}
